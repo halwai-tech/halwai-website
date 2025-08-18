@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display } from "next/font/google";
 import { Space_Grotesk } from "next/font/google";
 import { Roboto_Slab } from "next/font/google"; 
+import {AppProviders} from "@/redux/store/provider";
 
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -40,9 +41,11 @@ export default function RootLayout({
       <body
         className={`${playfairDisplay.variable} ${grotesk.variable} ${robotoSlab.variable} antialiased`}
       >
+        <AppProviders>
         <Navbar />
         {children}
         <Footer/>
+        </AppProviders>
       </body>
     </html>
   );

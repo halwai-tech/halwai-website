@@ -1,9 +1,13 @@
-
+import HomepageHero from "@/components/homepage/HomepageHero";
+import AboutDiningExperiences from "@/components/homepage/AboutDiningExperiences";
+import OccasionsSection from "@/components/homepage/OccassionsSection";
 
 export default function Home() {
   return (
    <>
-   <h1 className={`text-center font-playfair text-4xl`}>Homepage</h1>
+  <HomepageHero />
+  <AboutDiningExperiences />
+  <OccasionsSection />
    </>
   );
 }
