@@ -42,7 +42,7 @@ export default function Footer() {
       </div>
 
       {/* Divider + Bottom */}
-      <div className=" max-w-7xl mx-auto xl:px-10 2xl:px-0  border-t border-gray-300 mt-12 pt-6 relative text-center text-sm  "> 
+      <div className=" max-w-7xl mx-auto xl:px-10 2xl:px-0   border-t border-gray-300 mt-12 pt-6 relative text-center text-sm  "> 
         <p className="text-gray-300 font-roboto-slab">© 2023 Halwai by YourCompany. All Rights Reserved.</p>
 
         {/* Scroll-to-top button */}

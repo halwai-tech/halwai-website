@@ -23,7 +23,7 @@ export default function OccasionsSection() {
   }, []);
 
   return (
-    <section className="relative py-12 font-playfair overflow-hidden bg-white px-4 md:px-8 lg:px-16">
+    <section className="relative py-20 font-playfair overflow-hidden bg-white px-4 md:px-8 lg:px-16">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col items-start mb-10">
@@ -38,7 +38,7 @@ export default function OccasionsSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {eventsCategoryList.map((category, index) => (
             <Link
-              href={`/events/`} // ✅ Customize this route as needed
+              href={`/booking`} // ✅ Customize this route as needed
               key={index}
               className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-200 bg-white block"
             >

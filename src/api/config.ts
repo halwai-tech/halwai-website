@@ -19,6 +19,10 @@ export const publicEventApi=axios.create({
   baseURL:ApiUrl.eventUrl
 })
 
+export const publicEnquiryApi=axios.create({
+  baseURL:ApiUrl.enquiryUrl
+})
+
 
 
 

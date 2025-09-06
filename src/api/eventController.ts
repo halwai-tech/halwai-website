@@ -10,5 +10,14 @@ export const eventController={
         {
             throw error;
         }
+    },
+    getAllEvents:async ()=>{
+        try{
+            const result=await publicEventApi.get("/all-events");
+            return result;
+        } 
+        catch(error){
+            throw error;
+        }
     }
 }

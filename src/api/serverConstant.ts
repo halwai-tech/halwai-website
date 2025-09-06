@@ -3,6 +3,7 @@ export const prodBaseUrl="https://halwai-backend.vercel.app";
 
 export const ApiUrl={
     authenticationUrl:`${devBaseUrl}/api/auth`,
-    eventUrl:`${devBaseUrl}/api/admin`
+    eventUrl:`${devBaseUrl}/api/admin`,
+    enquiryUrl:`${devBaseUrl}/api/enquiry`
 }
 

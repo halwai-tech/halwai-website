@@ -19,3 +19,34 @@ export interface IEventCategory {
   updatedAt: string;
 }
 
+export interface IMeal {
+  name: string;
+  count: number;
+}
+
+export interface ISelectedDate {
+  date: string;  
+  guests: number;
+  meals: IMeal[];
+}
+
+export interface IProfessionalChefEnquiry {
+  occasion: string;
+  burnersInKitchen: number;
+  selectedDates: ISelectedDate[];
+  whatsapp:string;
+}
+
+export interface IMonthlyChefEnquiry {
+  people: number;
+  startDate: string;  
+  genderPreference: string;
+  whatsapp:string;
+}
+
+export interface IDomesticChefEnquiry {
+  people: number;
+  days: number;
+  visitsPerDay: number;
+  whatsapp:string;
+}
