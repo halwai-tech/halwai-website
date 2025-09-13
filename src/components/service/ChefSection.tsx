@@ -4,14 +4,14 @@ import Image from 'next/image';
 
 const ChefsSection = () => {
   return (
-    <section className="bg-white py-16  ">
+    <section className="bg-white py-20  ">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center  justify-between ">
         {/* Text Section */}
         <div className="w-full md:w-1/2">
-          <h5 className="text-[#C7702A] uppercase tracking-wide mb-2 font-roboto-slab">
+          <h5 className="text-main uppercase tracking-wide mb-2 font-roboto-slab">
             Meet Our Chefs
           </h5>
-          <h2 className="text-3xl md:text-6xl  text-black font-playfair  mb-6 leading-tight">
+          <h2 className="text-3xl md:text-6xl  text-main font-playfair  mb-6 leading-tight">
             Expert Chefs for Every Celebration
           </h2>
           <p className="text-gray-700 text-md font-roboto-slab mb-4">
@@ -26,7 +26,7 @@ const ChefsSection = () => {
         {/* Image Section */}
         <div className="w-full md:w-1/3 flex justify-center">
           <Image
-            src="/images/service/service-chef.jpg"
+            src="/halwai-images/image4.jpg"
             alt="Chef at work"
             className="shadow-md"
             width={500}

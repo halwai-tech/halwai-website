@@ -1,29 +1,26 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { enquiryController } from "@/api/enquiryController";
+import { IDomesticChefEnquiry } from "../../../utils/typeDef.js";
+import { useRouter } from "next/navigation.js";
 
 const peopleOptions = ["1", "2", "3-4", "5-6", "More than 6"];
 const daysOptions = ["1 Day", "3 Days", "7 Days", "15 Days", "30 Days"];
 const visitsOptions = ["1 Visit", "2 Visits", "3 Visits"];
 
+// ✅ Hardcoded WhatsApp number
+const HARDCODED_WHATSAPP = "918840004980";
+
 export default function DomesticCookForm() {
+  const router = useRouter();
   const [people, setPeople] = useState("");
   const [days, setDays] = useState("");
   const [visits, setVisits] = useState("");
-  const [showDialog, setShowDialog] = useState(false);
-  const [whatsappNumber, setWhatsappNumber] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!people || !days || !visits) {
       alert("Please fill all fields before submitting.");
-      return;
-    }
-    setShowDialog(true);
-  };
-
-  const sendWhatsAppMessage = () => {
-    if (!whatsappNumber) {
-      alert("Please enter your WhatsApp number.");
       return;
     }
 
@@ -32,24 +29,53 @@ export default function DomesticCookForm() {
 📆 Days: ${days}
 🔁 Visits per Day: ${visits}`;
 
-    const whatsappLink = `https://wa.me/91${whatsappNumber.replace(
-      /[^0-9]/g,
-      ""
-    )}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappLink, "_blank");
-    setShowDialog(false);
+    try {
+      let payload: IDomesticChefEnquiry = {
+        people: people,
+        days: days,
+        visitsPerDay: visits,
+        whatsapp: HARDCODED_WHATSAPP,
+      };
+
+      // Save booking in API
+      const response = await enquiryController.addDomesticChefEnquiry(payload);
+      console.log("Booking saved:", response.data);
+
+      // Open WhatsApp directly
+      const whatsappLink = `https://wa.me/${HARDCODED_WHATSAPP}?text=${encodeURIComponent(
+        message
+      )}`;
+      window.open(whatsappLink, "_blank");
+    } catch (error) {
+      console.error("Error saving booking:", error);
+      alert("There was an issue saving your booking. Please try again.");
+    }
   };
 
   return (
-    <div className="bg-white min-h-screen text-gray-800">
-      <div className="max-w-3xl mx-auto px-4 py-6">
+    <div className="bg-white py-10 text-gray-800 ">
+      <div className="max-w-3xl mx-auto px-4 py-6 ">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
-          <button className="text-xl">&larr;</button>
+          {/* Back Button */}
+          <button
+            className="text-xl"
+            onClick={() => router.back()} // ✅ go to previous page
+          >
+            &larr;
+          </button>
+
           <h1 className="text-lg font-semibold text-gray-900">
             Book a Domestic Cook
           </h1>
-          <button className="text-xl font-semibold">&times;</button>
+
+          {/* Close (Cut) Button */}
+          <button
+            className="text-xl font-semibold"
+            onClick={() => router.push("/")} // ✅ redirect to home
+          >
+            &times;
+          </button>
         </div>
 
         {/* Form */}
@@ -58,9 +84,7 @@ export default function DomesticCookForm() {
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Number of People{" "}
-              <span className="text-xs text-gray-500">
-                (5+ years of age)
-              </span>
+              <span className="text-xs text-gray-500">(5+ years of age)</span>
             </label>
             <select
               value={people}
@@ -152,38 +176,6 @@ export default function DomesticCookForm() {
           </div>
         </form>
       </div>
-
-      {/* WhatsApp Dialog */}
-      {showDialog && (
-        <div className="fixed inset-0 bg-black/90 bg-opacity-40 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-md w-full max-w-sm">
-            <h2 className="text-lg font-semibold mb-4">
-              Enter WhatsApp Number
-            </h2>
-            <input
-              type="text"
-              placeholder="e.g. 919876543210"
-              value={whatsappNumber}
-              onChange={(e) => setWhatsappNumber(e.target.value)}
-              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm mb-4"
-            />
-            <div className="flex justify-end gap-4">
-              <button
-                className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-                onClick={() => setShowDialog(false)}
-              >
-                Cancel
-              </button>
-              <button
-                className="px-4 py-2 bg-main text-white rounded hover:bg-main"
-                onClick={sendWhatsAppMessage}
-              >
-                Send
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

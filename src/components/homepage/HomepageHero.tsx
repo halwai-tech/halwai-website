@@ -1,52 +1,45 @@
 import React from "react";
-import chefImage from "@/assets/chef-image.jpg"; // Replace with actual path
-import dishImage from "@/assets/dish.png"; // Replace with actual path
 
 const HomepageHero = () => {
   return (
     <section className="relative bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto  xl:px-10 2xl:px-0 py-16 flex justify-between items-center relative z-10">
+      <div className="max-w-7xl mx-auto xl:px-10 2xl:px-0 py-10 flex justify-between items-center relative z-10">
         {/* Left Section */}
-        <div>
-          <p className="text-lg text-[#C7702A] font-roboto-slab  uppercase tracking-wide mb-4">
-            (Halwai) Private Chef
+        <div className="flex-1 pr-8">
+          <p className="text-lg text-[#C7702A] font-roboto-slab uppercase tracking-wide mb-4">
+            Halwai Wedding & Party Catering
           </p>
-          <h1 className="text-xl md:text-3xl font-playfair  text-main leading-snug">
-           Street-Style Flavors
+          <h1 className="text-2xl md:text-4xl font-playfair text-main leading-snug mb-4">
+            Traditional Taste, Modern Elegance
           </h1>
-          {/* inner container */}
-          <div className="flex justify-start items-center ">
-            {/* Dish Image */}
-            <div className="mt-8 w-44 ">
-              <img
-                src="/images/homepage/hero-dish.png"
-                alt="Dish"
-                className="rounded-full object-cover shadow-lg translate-x-[-40px]"
-              />
-            </div>
-            <div>
-              <h1 className="text-xl md:text-3xl font-playfair text-black leading-snug">
-                Delivered Straight to Your Plate
-              </h1>
-              <p className="mt-6 text-gray-600 w-[500px]  leading-relaxed font-roboto-slab text-lg">
-                Experience the authentic taste of traditional Indian sweets and snacks, now just a click away. Whether it’s a wedding, birthday, or a family gathering, our expert Halwais bring you freshly prepared delicacies with the same timeless flavors you love.
-              </p>
-            </div>
+
+          {/* Inner container */}
+          <div>
+            <h2 className="text-xl md:text-3xl font-playfair text-black leading-snug">
+              Bringing Celebrations to Life
+            </h2>
+            <p className="mt-6 text-gray-600 w-[600px] leading-relaxed font-roboto-slab text-lg">
+              From grand weddings to intimate parties, our expert Halwais craft
+              authentic sweets, snacks, and catering services that elevate every
+              occasion. Enjoy the timeless flavors of India, freshly prepared and
+              beautifully served for your guests. We bring not only food but
+              also a cultural experience that enhances your celebration.
+            </p>
           </div>
         </div>
 
-        {/* Right Section - Chef Image */}
-        <div className=" ">
+        {/* Right Section - Catering Image */}
+        <div className="flex-shrink-0">
           <div
             style={{
-              backgroundImage: 'url("/images/homepage/hero-chef.jpeg")',
+              backgroundImage: 'url("/halwai-images/image6.jpg")',
             }}
-            className="h-[540px] w-[540px]  bg-cover bg-center bg-no-repeat shadow-lg"
+            className="h-[480px] w-[540px] bg-cover bg-top bg-no-repeat shadow-lg "
           ></div>
         </div>
       </div>
 
-      {/* Decorative Leaf Illustration */}
+      {/* Decorative Element */}
       <div className="absolute top-0 right-[50%] -translate-x-1/2 opacity-20 z-0 hidden md:block">
         <svg
           width="150"

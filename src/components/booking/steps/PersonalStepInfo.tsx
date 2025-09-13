@@ -19,13 +19,11 @@ interface EventType {
   __v: number;
 }
 
-
 // 🔧 Utility to generate next 2 months of dates (day-wise)
 function generateNextTwoMonthsDates(): string[] {
   const today = new Date();
   const endDate = new Date(today);
   endDate.setMonth(today.getMonth() + 2);
-
 
   const dates: string[] = [];
 
@@ -44,26 +42,22 @@ function generateNextTwoMonthsDates(): string[] {
 export default function PersonalInfoStep({ next }: Props) {
   const [showDateDropdown, setShowDateDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const [events,setEvents]=useState<EventType[]>([]);
+  const [events, setEvents] = useState<EventType[]>([]);
 
   // fetch all the events to show in the dropdown
-  useEffect(()=>{
-  async function fetchEvents(){
-      try{
-
-        let response=await eventController.getAllEvents();
-        console.log("Response from the events api: ",response?.data?.data);
+  useEffect(() => {
+    async function fetchEvents() {
+      try {
+        let response = await eventController.getAllEvents();
+        console.log("Response from the events api: ", response?.data?.data);
         setEvents(response?.data?.data);
-
-      }
-      catch(error){
-        console.log("Error in Fetching Events: ",error);
+      } catch (error) {
+        console.log("Error in Fetching Events: ", error);
       }
     }
 
     fetchEvents();
-
-  },[]);
+  }, []);
 
   // Hide dropdown on outside click
   useEffect(() => {
@@ -83,7 +77,7 @@ export default function PersonalInfoStep({ next }: Props) {
   const allDates = generateNextTwoMonthsDates();
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-6 font-roboto-slab text-black">
+    <div className="max-w-4xl mx-auto px-4   font-roboto-slab text-black">
       <h2 className="text-xl font-bold mb-6 text-center">Book a Chef</h2>
 
       <Formik
@@ -103,25 +97,26 @@ export default function PersonalInfoStep({ next }: Props) {
         {({ values, setFieldValue }) => (
           <Form className="space-y-6">
             {/* Occasion Dropdown */}
-            <div>
-              <label className="block mb-1 font-medium">Select Occasion</label>
+            <div className="relative">
+              <label className="block mb-1  font-medium">Select Occasion</label>
               <Field
                 as="select"
                 name="occasion"
-                className="w-full border px-3 py-2 rounded bg-main text-white"
+                className="outline-none  w-full border px-3 py-2 rounded bg-main text-white flex flex-wrap gap-2 min-h-[42px] cursor-pointer"
               >
-                <option value="">Select Occasion</option>
-                {
-                  events && (
-                    events.map((event,index)=>{
-                       return (
-                          <option key={index} className="bg-white text-black" value={event?.eventName}>{event?.eventName}</option>
-                       )
-                    })
-                  )
-                }
-              
-                
+                <option value="" className="bg-white text-black">
+                  Select Occasion
+                </option>
+                {events &&
+                  events.map((event, index) => (
+                    <option
+                      key={index}
+                      value={event?.eventName}
+                      className=" w-full bg-mainwhite px-2 text-mainblack hover:bg-gray-400"
+                    >
+                      {event?.eventName}
+                    </option>
+                  ))}
               </Field>
               <ErrorMessage
                 name="occasion"
@@ -193,7 +188,6 @@ export default function PersonalInfoStep({ next }: Props) {
                 className="text-red-500 text-sm mt-1"
               />
             </div>
-
 
             {/* People per date */}
             {values.dates.map((date: string) => (

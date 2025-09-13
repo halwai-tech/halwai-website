@@ -38,15 +38,15 @@ export interface IProfessionalChefEnquiry {
 }
 
 export interface IMonthlyChefEnquiry {
-  people: number;
+  people: string;
   startDate: string;  
   genderPreference: string;
   whatsapp:string;
 }
 
 export interface IDomesticChefEnquiry {
-  people: number;
-  days: number;
-  visitsPerDay: number;
+  people: string;
+  days: string;
+  visitsPerDay: string;
   whatsapp:string;
 }

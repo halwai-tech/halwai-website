@@ -7,7 +7,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1E0202] text-white pb-12 pt-30">
+    <footer className="bg-main text-white pb-12 pt-30">
       <div className="max-w-7xl mx-auto xl:px-10 2xl:px-0  flex flex-col md:flex-row justify-between items-start gap-12">
         {/* Left: Contact Info */}
         <div>
@@ -25,7 +25,7 @@ export default function Footer() {
             <a href="#" className="hover:text-orange-400">Services</a>
             <a href="#" className="hover:text-orange-400">Contact</a>
           </nav>
-          <div className="flex justify-center gap-4 text-[#C7702A] text-lg">
+          <div className="flex justify-center gap-4 text-white text-lg">
             <a href="#"><Facebook  size={30}/></a>
             <a href="#"><Twitter size={30} /></a>
             <a href="#"><Instagram size={30} /></a>
@@ -46,8 +46,8 @@ export default function Footer() {
         <p className="text-gray-300 font-roboto-slab">© 2023 Halwai by YourCompany. All Rights Reserved.</p>
 
         {/* Scroll-to-top button */}
-        <a href="#top" className="absolute right-6 bottom-[0px]">
-          <div className="bg-[#C7702A] hover:bg-[#C7702A] transition p-3 rounded">
+        {/* <a href="#top" className="absolute right-6 bottom-[0px]">
+          <div className="bg-white transition p-3 rounded">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -59,7 +59,7 @@ export default function Footer() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
             </svg>
           </div>
-        </a>
+        </a> */}
       </div>
     </footer>
   );

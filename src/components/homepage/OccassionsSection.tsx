@@ -23,10 +23,10 @@ export default function OccasionsSection() {
   }, []);
 
   return (
-    <section className="relative py-20 font-playfair overflow-hidden bg-white px-4 md:px-8 lg:px-16">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-10 font-playfair overflow-hidden bg-white px-4 md:px-8 lg:px-16">
+      <div className="max-w-7xl mx-auto ">
         {/* Header */}
-        <div className="flex flex-col items-start mb-10">
+        <div className="flex flex-col items-start ">
           <h2 className="text-3xl font-bold text-gray-900">Special Occasions</h2>
           <p className="text-gray-600 mt-2">
             We cater to all kinds of{" "}

@@ -6,7 +6,7 @@ const Banner = () => {
     <div className="relative w-full h-[90vh] flex items-center justify-center">
       {/* Background Image */}
       <Image
-        src="/images/about/ban.webp"
+        src="/halwai-images/image2.jpg"
         alt="Banner"
         fill
         priority
