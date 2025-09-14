@@ -42,7 +42,7 @@ export default function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center font-playfair h-screen bg-white px-4">
+    <div className="flex items-center justify-center font-playfair py-20 bg-white px-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl w-full">
         {/* Left Image */}
         <div className="flex items-center justify-center">
@@ -58,7 +58,7 @@ export default function Login() {
         {/* Right Form */}
         <div className="flex items-center justify-center">
           <div className="w-full max-w-sm">
-            <h1 className="text-2xl font-semibold font-playfair text-center mb-6 text-primary">
+            <h1 className="text-2xl font-semibold font-playfair text-center mb-6 text-main">
              Login To Book Halwai
             </h1>
 
@@ -70,19 +70,20 @@ export default function Login() {
               {({ handleChange, values, touched, errors }) => (
                 <Form noValidate>
                   <div className="mb-4">
-                    <label className="block text-sm text-gray-600 font-medium mb-1">
-                      Username
+                    <label className="block text-black font-roboto-slab font-bold text-xl mb-1">
+                      Email
                     </label>
                     <input
                       type="email"
                       name="email"
                       value={values.email}
                       onChange={handleChange}
+                      placeholder="Enter Email"
                       className={`w-full px-3 py-2 border ${
                         touched.email && errors.email
-                          ? "border-red-500"
-                          : "border-gray-300"
-                      } rounded-md focus:outline-none focus:ring-2 focus:ring-primary`}
+                          ? "border-main"
+                          : "border-black"
+                      } rounded-md focus:outline-none  text-black focus:ring-2 focus:ring-main`}
                     />
                     {touched.email && errors.email && (
                       <p className="text-sm text-red-500 mt-1">
@@ -92,22 +93,23 @@ export default function Login() {
                   </div>
 
                   <div className="mb-4">
-                    <label className="block text-sm text-gray-600 font-medium mb-1">
+                    <label className="block text-black font-roboto-slab font-bold text-xl mb-1">
                       Password
                     </label>
                     <input
                       type="password"
                       name="password"
                       value={values.password}
+                      placeholder="Enter Password"
                       onChange={handleChange}
                       className={`w-full px-3 py-2 border ${
                         touched.password && errors.password
-                          ? "border-red-500"
-                          : "border-gray-300"
-                      } rounded-md focus:outline-none focus:ring-2 focus:ring-primary`}
+                          ? "border-main"
+                          : "border-black"
+                      } rounded-md focus:outline-none text-black focus:ring-2 focus:ring-main`}
                     />
                     {touched.password && errors.password && (
-                      <p className="text-sm text-red-500 mt-1">
+                      <p className="text-sm text-main mt-1">
                         {errors.password}
                       </p>
                     )}
@@ -115,7 +117,7 @@ export default function Login() {
 
                   <button
                     type="submit"
-                    className="w-full bg-primary text-white py-2 rounded-md transition duration-200"
+                    className="w-full bg-main text-white py-2 rounded-md transition duration-200"
                   >
                     Login
                   </button>
@@ -124,11 +126,11 @@ export default function Login() {
             </Formik>
 
             <div className="mt-4 text-center">
-              <p className="text-sm text-gray-600">
+              <p className=" text-black font-bold font-roboto-slab text-md">
                 Not registered yet?{" "}
                 <Link
                   href="/register"
-                  className="text-primary font-semibold hover:underline"
+                  className="text-main font-semibold hover:underline"
                 >
                   Create an account
                 </Link>

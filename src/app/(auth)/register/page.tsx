@@ -46,7 +46,7 @@ export default function Register() {
   };
 
   return (
-    <div className="bg-white flex font-playfair flex-col md:flex-row h-screen">
+    <div className="bg-white flex font-playfair py-10 flex-col md:flex-row ">
       {/* Left side image */}
       <div className="w-full md:w-1/2 flex items-center justify-end p-6">
         <Image
@@ -61,7 +61,7 @@ export default function Register() {
       {/* Right side form */}
       <div className="w-full md:w-1/2 flex items-center justify-start px-4">
         <div className="w-full max-w-md">
-          <h1 className="text-2xl text-primary font-semibold text-center mb-6">
+          <h1 className="text-2xl text-main font-semibold text-center mb-6">
             Register Here
           </h1>
 
@@ -79,7 +79,7 @@ export default function Register() {
               <Form noValidate>
                 {/* Username */}
                 <div className="mb-4">
-                  <label className="block text-gray-600 text-sm font-medium mb-1">
+                  <label className="block text-black font-roboto-slab text-xl font-bold mb-1">
                     Username
                   </label>
                   <input
@@ -87,11 +87,12 @@ export default function Register() {
                     name="username"
                     value={values.username}
                     onChange={handleChange}
+                    placeholder="Enter Username"
                     className={`w-full px-3 py-2 border ${
                       touched.username && errors.username
                         ? "border-red-500"
-                        : "border-gray-300"
-                    } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                        : "border-black"
+                    } rounded-md focus:outline-none text-black focus:ring-2 focus:ring-main`}
                   />
                   {touched.username && errors.username && (
                     <p className="text-sm text-red-500 mt-1">
@@ -102,7 +103,7 @@ export default function Register() {
 
                 {/* Email */}
                 <div className="mb-4">
-                  <label className="block text-gray-600 text-sm font-medium mb-1">
+                  <label className="block text-black font-roboto-slab font-bold text-xl mb-1">
                     Email
                   </label>
                   <input
@@ -110,11 +111,12 @@ export default function Register() {
                     name="email"
                     value={values.email}
                     onChange={handleChange}
+                    placeholder="Enter Email"
                     className={`w-full px-3 py-2 border ${
                       touched.email && errors.email
                         ? "border-red-500"
-                        : "border-gray-300"
-                    } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                        : "border-black"
+                    } rounded-md focus:outline-none text-black font-roboto-slab font-bold   focus:ring-2 focus:ring-main`}
                   />
                   {touched.email && errors.email && (
                     <p className="text-sm text-red-500 mt-1">
@@ -125,19 +127,20 @@ export default function Register() {
 
                 {/* Password */}
                 <div className="mb-4">
-                  <label className="block text-gray-600 text-sm font-medium mb-1">
+                  <label className="block text-black font-roboto-slab font-bold text-xl mb-1">
                     Password
                   </label>
                   <input
                     type="password"
                     name="password"
+                    placeholder="Enter Password"
                     value={values.password}
                     onChange={handleChange}
                     className={`w-full px-3 py-2 border ${
                       touched.password && errors.password
                         ? "border-red-500"
-                        : "border-gray-300"
-                    } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                        : "border-black"
+                    } rounded-md focus:outline-none text-black font-roboto-slab font-bold focus:ring-2 focus:ring-main`}
                   />
                   {touched.password && errors.password && (
                     <p className="text-sm text-red-500 mt-1">
@@ -149,7 +152,7 @@ export default function Register() {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full bg-primary text-white py-2 rounded-md transition duration-200"
+                  className="w-full bg-main text-white py-2 rounded-md transition duration-200"
                 >
                   Register
                 </button>
@@ -159,11 +162,11 @@ export default function Register() {
 
           {/* Login link */}
           <div className="mt-4 text-center">
-            <p className="text-sm text-gray-600">
+            <p className="text-md font-bold font-roboto-slab text-black">
               Already registered?{" "}
               <NextLink
                 href="/login"
-                className="text-primary font-semibold hover:underline"
+                className="text-main font-semibold hover:underline"
               >
                 Login here
               </NextLink>

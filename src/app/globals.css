@@ -12,6 +12,9 @@
   --color-main:var(--main);
   --color-mainblack:var(--mainblack);
   --color-mainwhite:var(--mainwhite);
+  --color-maindarkgray:var(--maindarkgray);
+  --color-mainlightgray:var(--mainlightgray);
+  --color-mainpeachpuff:var(--mainpeachpuff);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-grotesk:var(--font-grotesk);
@@ -27,6 +30,9 @@
     --main:#b11f29;
     --mainblack:#000000;
     --mainwhite:#ffffff;
+    --maindarkgray:#292323;
+    --mainlightgray:#635F5F;
+    --mainpeachpuff:#FADBAC;
   }
 }
 

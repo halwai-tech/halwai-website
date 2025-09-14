@@ -4,6 +4,9 @@ import { Space_Grotesk } from "next/font/google";
 import { Roboto_Slab } from "next/font/google"; 
 import {AppProviders} from "@/redux/store/provider";
 
+import { Toaster } from "react-hot-toast";
+import ToastBridge from "@/components/ToastBridge";
+
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -44,6 +47,9 @@ export default function RootLayout({
         <AppProviders>
         <Navbar />
         {children}
+        {/* for toast */}
+         <ToastBridge/>
+        <Toaster position="top-right" toastOptions={{duration:3000}} />
         <Footer/>
         </AppProviders>
       </body>
