@@ -1,65 +1,66 @@
-import {
-  Facebook,
-  Twitter,
-  Instagram,
-  Youtube,
-} from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
-export default function Footer() {
+export default function NewFooter() {
   return (
-    <footer className="bg-main text-white pb-12 pt-30">
-      <div className="max-w-7xl mx-auto xl:px-10 2xl:px-0  flex flex-col md:flex-row justify-between items-start gap-12">
-        {/* Left: Contact Info */}
-        <div>
-          <h3 className="text-4xl font-playfair  mb-4">Our Contact</h3>
-          <p className="text-xl mb-1 font-roboto-slab">contact@domain.com</p>
-          <p className="text-xl font-roboto-slab">+62 887-1106-22814</p>
-        </div>
+    <footer className="bg-gray-50 pt-20 pb-12 shadow-inner">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 flex flex-col md:flex-row justify-between items-center gap-12">
 
-        {/* Center: Logo and Navigation */}
-        <div className="text-center flex-1">
-          <h2 className="text-6xl font-playfair font-semibold mb-2">Halwai</h2>
-          <nav className="flex justify-center gap-6  mb-4 font-roboto-slab text-xl">
-            <a href="#" className="hover:text-orange-400">Home</a>
-            <a href="#" className="hover:text-orange-400">About</a>
-            <a href="#" className="hover:text-orange-400">Services</a>
-            <a href="#" className="hover:text-orange-400">Contact</a>
-          </nav>
-          <div className="flex justify-center gap-4 text-white text-lg">
-            <a href="#"><Facebook  size={30}/></a>
-            <a href="#"><Twitter size={30} /></a>
-            <a href="#"><Instagram size={30} /></a>
-            <a href="#"><Youtube size={30} /></a>
+        {/* Left Section: Logo and About */}
+        <div className="flex-1 text-center md:text-left">
+          <h2 className="text-2xl md:text-3xl font-poppins font-bold mb-4 text-gray-900">Halwai Wala</h2>
+          <p className="text-lg font-roboto mb-4 text-gray-700">
+            Authentic Indian catering and sweets. We connect you with top chefs and halwais for unforgettable experiences.
+          </p>
+
+          {/* Newsletter Subscription */}
+          <div className="mt-4 flex flex-col sm:flex-row justify-center md:justify-start gap-2 w-full sm:w-auto">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 text-gray-900 w-full sm:w-auto"
+            />
+            <button className="px-4 py-2 bg-gray-900 text-white rounded-md font-semibold hover:bg-gray-700 transition-colors w-full sm:w-auto">
+              Subscribe
+            </button>
           </div>
         </div>
 
-        {/* Right: Address */}
-        <div>
-          <h3 className="text-4xl font-playfair  mb-4">Our Office</h3>
-          <p className="text-xl font-roboto-slab">Jl. Danau Tamblingan No.180,</p>
-          <p className="text-xl font-roboto-slab">Sanur, Denpasar, Bali 80222</p>
+        {/* Center Section: Navigation */}
+        <div className="flex-1 text-center">
+          <h3 className="text-2xl md:text-3xl font-poppins font-semibold mb-4 text-gray-900">Quick Links</h3>
+          <nav className="flex flex-col md:flex-row justify-center items-center gap-3 md:gap-8 mb-4 font-roboto text-lg text-center">
+            <a href="/" className="text-gray-900 hover:text-gray-600 transition-colors">Home</a>
+            <a href="/about" className="text-gray-900 hover:text-gray-600 transition-colors">About</a>
+            <a href="/services" className="text-gray-900 hover:text-gray-600 transition-colors">Services</a>
+            <a href="/contact" className="text-gray-900 hover:text-gray-600 transition-colors">Contact</a>
+          </nav>
+        </div>
+
+        {/* Right Section: Contact Info */}
+        <div className="flex-1 text-center md:text-right">
+          <h3 className="text-2xl md:text-3xl font-poppins font-semibold mb-4 text-gray-900">Get in Touch</h3>
+          <p className="text-lg font-roboto mb-2 text-gray-700">Phone: +91 96439 86161</p>
+          <p className="text-lg font-roboto text-gray-700">Email: contact@halwaiwala.com</p>
+          <div className="mt-4 flex justify-center md:justify-end gap-4">
+            {[Facebook, Twitter, Instagram, Linkedin].map((Icon, idx) => (
+              <a
+                key={idx}
+                href="#"
+                className="p-3 rounded-full bg-gray-100 text-gray-900 hover:bg-gray-900 hover:text-white transition-colors shadow-md"
+              >
+                <Icon size={24} />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Divider + Bottom */}
-      <div className=" max-w-7xl mx-auto xl:px-10 2xl:px-0   border-t border-gray-300 mt-12 pt-6 relative text-center text-sm  "> 
-        <p className="text-gray-300 font-roboto-slab">© 2023 Halwai by YourCompany. All Rights Reserved.</p>
-
-        {/* Scroll-to-top button */}
-        {/* <a href="#top" className="absolute right-6 bottom-[0px]">
-          <div className="bg-white transition p-3 rounded">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="2"
-              stroke="white"
-              className="w-4 h-4"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
-            </svg>
-          </div>
-        </a> */}
+      {/* Bottom Section: Legal */}
+      <div className="text-center mt-12 border-t border-gray-200 pt-6 text-sm flex flex-col md:flex-row justify-center gap-4 md:gap-8 items-center">
+        <p className="text-gray-700 font-roboto">© 2025 Halwai Wala. All Rights Reserved.</p>
+        <a href="/terms" className="text-gray-700 hover:text-gray-500 transition-colors">Terms of Service</a>
+        <a href="/privacy" className="text-gray-700 hover:text-gray-500 transition-colors">Privacy Policy</a>
+        <a href="/refund" className="text-gray-700 hover:text-gray-500 transition-colors">Refund Policy</a>
       </div>
     </footer>
   );

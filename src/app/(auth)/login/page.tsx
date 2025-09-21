@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import Cookies from "js-cookie";
 import { authController } from "@/api/authController";
@@ -21,7 +22,7 @@ export default function Login() {
 
       if (token) {
         Cookies.set("auth_token", token, {
-          expires: 1,
+          expires: 7,
           secure: process.env.NODE_ENV === "production",
           sameSite: "Lax",
           path: "/",
@@ -38,104 +39,113 @@ export default function Login() {
       }
     } catch (error) {
       console.error("Login error:", error);
+      dispatch(
+        showToast({ message: "Login failed! Try again.", type: "error" })
+      );
     }
   };
 
   return (
-    <div className="flex items-center justify-center font-playfair py-20 bg-white px-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl w-full">
-        {/* Left Image */}
-        <div className="flex items-center justify-center">
-          <Image
-            src="/images/login/chef.jpg"
-            alt="Login"
-            width={500}
-            height={500}
-            className="rounded-lg max-w-full h-auto"
-          />
-        </div>
+    <div className="min-h-screen flex flex-col md:flex-row bg-white font-playfair">
 
-        {/* Right Form */}
-        <div className="flex items-center justify-center">
-          <div className="w-full max-w-sm">
-            <h1 className="text-2xl font-semibold font-playfair text-center mb-6 text-main">
-             Login To Book Halwai
+      {/* Left Image */}
+      <div className="w-full md:w-1/2 flex items-center justify-center p-4 sm:p-6 md:p-10">
+        <Image
+          src="/images/login/chef.jpg"
+          alt="Login"
+          width={600}
+          height={600}
+          className="rounded-3xl shadow-lg object-cover w-full max-w-md"
+        />
+      </div>
+
+      {/* Right Form */}
+      <div className="w-full md:w-1/2 flex items-center justify-center p-0 sm:p-6 sm:p-8 md:p-10">
+        <div className="w-full max-w-md bg-white p-6 sm:p-8 md:p-10 rounded-3xl shadow-xl">
+          
+          {/* Heading */}
+          <div className="mb-6 text-center">
+            <h1 className="text-3xl sm:text-4xl font-bold text-[#b11f29]">
+              Welcome Back!
             </h1>
+            <p className="text-gray-600 mt-2 font-roboto-slab text-sm sm:text-base">
+              Login to explore our premium catering services & authentic sweets.
+            </p>
+          </div>
 
-            <Formik
-              initialValues={{ email: "", password: "" }}
-              validationSchema={LoginSchema}
-              onSubmit={handleSubmit}
-            >
-              {({ handleChange, values, touched, errors }) => (
-                <Form noValidate>
-                  <div className="mb-4">
-                    <label className="block text-black font-roboto-slab font-bold text-xl mb-1">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={values.email}
-                      onChange={handleChange}
-                      placeholder="Enter Email"
-                      className={`w-full px-3 py-2 border ${
-                        touched.email && errors.email
-                          ? "border-main"
-                          : "border-black"
-                      } rounded-md focus:outline-none  text-black focus:ring-2 focus:ring-main`}
-                    />
-                    {touched.email && errors.email && (
-                      <p className="text-sm text-red-500 mt-1">
-                        {errors.email}
-                      </p>
-                    )}
-                  </div>
+          <Formik
+            initialValues={{ email: "", password: "" }}
+            validationSchema={LoginSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ handleChange, values, touched, errors }) => (
+              <Form className="space-y-4 sm:space-y-5">
 
-                  <div className="mb-4">
-                    <label className="block text-black font-roboto-slab font-bold text-xl mb-1">
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      name="password"
-                      value={values.password}
-                      placeholder="Enter Password"
-                      onChange={handleChange}
-                      className={`w-full px-3 py-2 border ${
-                        touched.password && errors.password
-                          ? "border-main"
-                          : "border-black"
-                      } rounded-md focus:outline-none text-black focus:ring-2 focus:ring-main`}
-                    />
-                    {touched.password && errors.password && (
-                      <p className="text-sm text-main mt-1">
-                        {errors.password}
-                      </p>
-                    )}
-                  </div>
+                {/* Email */}
+                <div>
+                  <label className="block text-gray-800 font-semibold mb-1 sm:mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={values.email}
+                    onChange={handleChange}
+                    placeholder="Enter Email"
+                    className={`w-full px-4 py-3 border rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#b11f29] transition ${
+                      touched.email && errors.email ? "border-red-500" : "border-gray-300"
+                    }`}
+                  />
+                  {touched.email && errors.email && (
+                    <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                  )}
+                </div>
 
-                  <button
-                    type="submit"
-                    className="w-full bg-main text-white py-2 rounded-md transition duration-200"
-                  >
-                    Login
-                  </button>
-                </Form>
-              )}
-            </Formik>
+                {/* Password */}
+                <div>
+                  <label className="block text-gray-800 font-semibold mb-1 sm:mb-2">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    value={values.password}
+                    onChange={handleChange}
+                    placeholder="Enter Password"
+                    className={`w-full px-4 py-3 border rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#b11f29] transition ${
+                      touched.password && errors.password ? "border-red-500" : "border-gray-300"
+                    }`}
+                  />
+                  {touched.password && errors.password && (
+                    <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+                  )}
+                </div>
 
-            <div className="mt-4 text-center">
-              <p className=" text-black font-bold font-roboto-slab text-md">
-                Not registered yet?{" "}
-                <Link
-                  href="/register"
-                  className="text-main font-semibold hover:underline"
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="w-full bg-[#b11f29] text-white py-3 rounded-xl font-semibold hover:bg-[#e63946] transition duration-200 shadow-md hover:shadow-lg"
                 >
-                  Create an account
-                </Link>
-              </p>
-            </div>
+                  Login
+                </button>
+              </Form>
+            )}
+          </Formik>
+
+          {/* Links */}
+          <div className="mt-5 flex flex-col sm:flex-row justify-between items-center text-sm sm:text-base">
+            <Link
+              href="/register"
+              className="text-[#b11f29] font-semibold hover:underline mb-2 sm:mb-0"
+            >
+              Create an account
+            </Link>
+            <Link
+              href="/forgot-password"
+              className="text-gray-500 hover:text-[#b11f29] transition-colors"
+            >
+              Forgot Password?
+            </Link>
           </div>
         </div>
       </div>

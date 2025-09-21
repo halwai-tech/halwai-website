@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import Cookies from "js-cookie";
 import NextLink from "next/link";
@@ -30,7 +31,7 @@ export default function Register() {
 
         dispatch(
           showToast({
-            message: "User Registration Successfull!",
+            message: "User Registration Successful!",
             type: "success",
           })
         );
@@ -46,24 +47,33 @@ export default function Register() {
   };
 
   return (
-    <div className="bg-white flex font-playfair py-10 flex-col md:flex-row ">
-      {/* Left side image */}
-      <div className="w-full md:w-1/2 flex items-center justify-end p-6">
-        <Image
-          src="/images/login/chef.jpg"
-          alt="Register"
-          width={500}
-          height={500}
-          className="max-w-full h-auto rounded-lg"
-        />
-      </div>
+    <div className="min-h-screen flex flex-col md:flex-row bg-white font-playfair">
 
-      {/* Right side form */}
-      <div className="w-full md:w-1/2 flex items-center justify-start px-4">
-        <div className="w-full max-w-md">
-          <h1 className="text-2xl text-main font-semibold text-center mb-6">
-            Register Here
-          </h1>
+      {/* Left Image */}
+<div className="w-full md:w-1/2 flex items-center justify-center p-4 sm:p-6 md:p-10">
+  <Image
+    src="/images/login/chef.jpg"
+    alt="Register"
+    width={600}
+    height={600}
+    className="rounded-3xl shadow-xl object-cover w-full max-w-sm sm:max-w-md"
+  />
+</div>
+
+
+      {/* Right Form */}
+      <div className="w-full md:w-1/2 flex items-center justify-center p-4 sm:p-6 md:p-10">
+        <div className="w-full max-w-md bg-white p-6 sm:p-8 md:p-10 rounded-3xl shadow-xl">
+
+          {/* Heading */}
+          <div className="mb-6 text-center">
+            <h1 className="text-3xl sm:text-3xl md:text-4xl font-bold text-[#b11f29] leading-snug sm:leading-snug md:leading-tight">
+              Create Your Account
+            </h1>
+            <p className="text-gray-600 mt-2 font-roboto-slab text-sm sm:text-base md:text-base leading-relaxed">
+              Register now and enjoy premium Halwai services & authentic sweets.
+            </p>
+          </div>
 
           <Formik
             initialValues={{
@@ -76,10 +86,11 @@ export default function Register() {
             onSubmit={handleSubmit}
           >
             {({ handleChange, values, touched, errors }) => (
-              <Form noValidate>
+              <Form className="space-y-4 sm:space-y-5">
+
                 {/* Username */}
-                <div className="mb-4">
-                  <label className="block text-black font-roboto-slab text-xl font-bold mb-1">
+                <div>
+                  <label className="block text-gray-800 font-semibold mb-1 sm:mb-2">
                     Username
                   </label>
                   <input
@@ -88,22 +99,18 @@ export default function Register() {
                     value={values.username}
                     onChange={handleChange}
                     placeholder="Enter Username"
-                    className={`w-full px-3 py-2 border ${
-                      touched.username && errors.username
-                        ? "border-red-500"
-                        : "border-black"
-                    } rounded-md focus:outline-none text-black focus:ring-2 focus:ring-main`}
+                    className={`w-full px-4 py-3 border rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#b11f29] transition ${
+                      touched.username && errors.username ? "border-red-500" : "border-gray-300"
+                    }`}
                   />
                   {touched.username && errors.username && (
-                    <p className="text-sm text-red-500 mt-1">
-                      {errors.username}
-                    </p>
+                    <p className="text-red-500 text-sm mt-1">{errors.username}</p>
                   )}
                 </div>
 
                 {/* Email */}
-                <div className="mb-4">
-                  <label className="block text-black font-roboto-slab font-bold text-xl mb-1">
+                <div>
+                  <label className="block text-gray-800 font-semibold mb-1 sm:mb-2">
                     Email
                   </label>
                   <input
@@ -112,47 +119,39 @@ export default function Register() {
                     value={values.email}
                     onChange={handleChange}
                     placeholder="Enter Email"
-                    className={`w-full px-3 py-2 border ${
-                      touched.email && errors.email
-                        ? "border-red-500"
-                        : "border-black"
-                    } rounded-md focus:outline-none text-black font-roboto-slab font-bold   focus:ring-2 focus:ring-main`}
+                    className={`w-full px-4 py-3 border rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#b11f29] transition ${
+                      touched.email && errors.email ? "border-red-500" : "border-gray-300"
+                    }`}
                   />
                   {touched.email && errors.email && (
-                    <p className="text-sm text-red-500 mt-1">
-                      {errors.email}
-                    </p>
+                    <p className="text-red-500 text-sm mt-1">{errors.email}</p>
                   )}
                 </div>
 
                 {/* Password */}
-                <div className="mb-4">
-                  <label className="block text-black font-roboto-slab font-bold text-xl mb-1">
+                <div>
+                  <label className="block text-gray-800 font-semibold mb-1 sm:mb-2">
                     Password
                   </label>
                   <input
                     type="password"
                     name="password"
-                    placeholder="Enter Password"
                     value={values.password}
                     onChange={handleChange}
-                    className={`w-full px-3 py-2 border ${
-                      touched.password && errors.password
-                        ? "border-red-500"
-                        : "border-black"
-                    } rounded-md focus:outline-none text-black font-roboto-slab font-bold focus:ring-2 focus:ring-main`}
+                    placeholder="Enter Password"
+                    className={`w-full px-4 py-3 border rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#b11f29] transition ${
+                      touched.password && errors.password ? "border-red-500" : "border-gray-300"
+                    }`}
                   />
                   {touched.password && errors.password && (
-                    <p className="text-sm text-red-500 mt-1">
-                      {errors.password}
-                    </p>
+                    <p className="text-red-500 text-sm mt-1">{errors.password}</p>
                   )}
                 </div>
 
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full bg-main text-white py-2 rounded-md transition duration-200"
+                  className="w-full bg-[#b11f29] text-white py-3 rounded-xl font-semibold hover:bg-[#e63946] transition duration-200 shadow-md hover:shadow-lg"
                 >
                   Register
                 </button>
@@ -161,17 +160,21 @@ export default function Register() {
           </Formik>
 
           {/* Login link */}
-          <div className="mt-4 text-center">
-            <p className="text-md font-bold font-roboto-slab text-black">
-              Already registered?{" "}
-              <NextLink
-                href="/login"
-                className="text-main font-semibold hover:underline"
-              >
-                Login here
-              </NextLink>
-            </p>
+          <div className="mt-5 flex flex-col sm:flex-row justify-between items-center text-sm sm:text-base">
+            <NextLink
+              href="/login"
+              className="text-[#b11f29] font-semibold hover:underline mb-2 sm:mb-0 text-center sm:text-left"
+            >
+              Already have an account? Login here
+            </NextLink>
+            <NextLink
+              href="/forgot-password"
+              className="text-gray-500 hover:text-[#b11f29] transition-colors mt-1 sm:mt-0 text-center sm:text-left"
+            >
+              Forgot Password?
+            </NextLink>
           </div>
+
         </div>
       </div>
     </div>

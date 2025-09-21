@@ -12,17 +12,46 @@ import CallToAction from "@/components/contact2/CallToAction";
 
 export default function ContactPage() {
   return (
-    <main className=" bg-mainwhite">
-      <HeroSection />
-      <ContactOptions />
-      <ContactForm />
-      <HowItWorks />
-      <JoinNetwork />
-      <PartnerBenefits />
-      <FAQSection />
-      <Testimonials />
-      <StatsSection />
-      <CallToAction />
+    <main className="bg-mainwhite w-full min-h-screen">
+      <section className="w-full">
+        <HeroSection />
+      </section>
+
+      <section className="w-full">
+        <ContactOptions />
+      </section>
+
+      <section className="w-full px-4 sm:px-6 lg:px-10">
+        <ContactForm />
+      </section>
+
+      <section className="w-full bg-gray-50 px-4 sm:px-6 lg:px-10">
+        <HowItWorks />
+      </section>
+
+      <section className="w-full bg-gray-50 px-4 sm:px-6 lg:px-10">
+        <JoinNetwork />
+      </section>
+
+      <section className="w-full bg-gray-50 px-4 sm:px-6 lg:px-10">
+        <PartnerBenefits />
+      </section>
+
+      <section className="w-full px-4 sm:px-6 lg:px-10">
+        <FAQSection />
+      </section>
+
+      <section className="w-full bg-gray-50 px-4 sm:px-6 lg:px-10">
+        <Testimonials />
+      </section>
+
+      <section className="w-full px-4 sm:px-6 lg:px-10">
+        <StatsSection />
+      </section>
+
+      <section className="w-full bg-mainwhite px-4 sm:px-6 lg:px-10">
+        <CallToAction />
+      </section>
     </main>
   );
 }

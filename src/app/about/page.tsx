@@ -14,7 +14,7 @@ const page = () => {
       <WhoWeAre/>
       <ServingCities/>
       <VisionStarted/>
-      <LeaderShip/>
+      {/* <LeaderShip/> */}
       
       
       

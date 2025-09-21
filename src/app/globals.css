@@ -1,43 +1,83 @@
 @import "tailwindcss";
 
+/* COLORS */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ffffff;    /* white background */
+  --foreground: #171717;    /* black text */
+  --primary: #f5a623;       /* yellow accent */
+  --secondary: #fcd5ce;     /* soft peach hover */
+  --accent: #fbbf24;        /* button highlight */
+
+  --font-headings: 'Poppins', sans-serif;
+  --font-body: 'Roboto', sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-main:var(--main);
-  --color-mainblack:var(--mainblack);
-  --color-mainwhite:var(--mainwhite);
-  --color-maindarkgray:var(--maindarkgray);
-  --color-mainlightgray:var(--mainlightgray);
-  --color-mainpeachpuff:var(--mainpeachpuff);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-grotesk:var(--font-grotesk);
-  --font-playfair:var(--font-playfair);
-  --font-roboto-slab:var(--font-roboto-slab);
+html{
+  scroll-behavior: smooth;
 }
 
+/* Dark mode fallback */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --primary: #C7702A;
-    --main:#b11f29;
-    --mainblack:#000000;
-    --mainwhite:#ffffff;
-    --maindarkgray:#292323;
-    --mainlightgray:#635F5F;
-    --mainpeachpuff:#FADBAC;
+    --background: #171717;
+    --foreground: #ffffff;
+    --primary: #fbbf24;
+    --secondary: #fcd5ce;
+    --accent: #f5a623;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--font-headings);
+  color: var(--primary);
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+button {
+  font-family: var(--font-body);
+  background-color: var(--accent);
+  color: var(--background);
+  padding: 0.6em 1.2em;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover { color: var(--accent); }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.text-accent { color: var(--accent); }
+.bg-accent { background-color: var(--accent); }
+
+/* Scroll animation helper */
+@keyframes slide-down {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.animate-slide-down { animation: slide-down 0.3s ease-in-out; }
